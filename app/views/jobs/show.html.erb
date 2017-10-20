@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recuriter:</strong>
+  <%= @job.recuriter_id %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @job.time %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @job.quantity %>
+</p>
+
+<p>
+  <strong>Worker num:</strong>
+  <%= @job.worker_num %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @job.price %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @job.content %>
+</p>
+
+<p>
+  <strong>Diving num:</strong>
+  <%= @job.diving_num %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @job.duration %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @job.note %>
+</p>
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>
