@@ -20,11 +20,11 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+# gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+# gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -39,6 +39,21 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+    gem "chromedriver-helper"
+
+  gem 'minitest-rails'
+  gem "minitest", "5.10.1"
+  gem 'mocha'
+  gem 'pry'
+  gem 'pry-doc'
+  gem 'pry-bond'
+  gem 'pry-byebug'
+
+  # gem 'rubocop', require: false
+
+  gem 'database_cleaner'
+  gem 'ffaker'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -50,5 +65,14 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+source "https://rails-assets.org" do
+  # gem 'rails-assets-tether'
+  gem 'rails-assets-bootstrap', '4.0.0.beta'
+end
+
+gem "pundit", git: 'https://github.com/elabs/pundit.git', branch: 'master'
+
+
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
