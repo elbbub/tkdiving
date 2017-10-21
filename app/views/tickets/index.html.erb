@@ -18,9 +18,9 @@
         <td><%= ticket.freelancer_id %></td>
         <td><%= ticket.job_id %></td>
         <td><%= ticket.take_quantity %></td>
-        <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', job_ticket_path(@job,ticket) %></td>
+        <td><%= link_to 'Edit', edit_job_ticket_path(@job,ticket) %></td>
+        <td><%= link_to 'Destroy', job_ticket_path(@job,ticket), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Ticket', new_ticket_path %>
+<%= link_to 'New Ticket', new_job_ticket_path %>

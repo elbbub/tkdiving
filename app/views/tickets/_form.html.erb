@@ -1,30 +1,40 @@
-<%= form_with(model: ticket, local: true) do |form| %>
-  <% if ticket.errors.any? %>
+
+<%= form_with(model: @ticket, url: job_tickets_path(@job)) do |form| %>
+  <% if @ticket.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+      <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this @ticket from being saved:</h2>
 
       <ul>
-      <% ticket.errors.full_messages.each do |message| %>
+      <% @ticket.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :freelancer_id %>
-    <%= form.number_field :freelancer_id, id: :ticket_freelancer_id %>
-  </div>
 
   <div class="field">
-    <%= form.label :job_id %>
-    <%= form.number_field :job_id, id: :ticket_job_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :take_quantity %>
+    <%= form.label :take_quantity, "认领人数" %>
     <%= form.number_field :take_quantity, id: :ticket_take_quantity %>
   </div>
+
+
+  <%= fields_for :freelancer, @ticket.freelancer do |freelancer| %>
+    <div class="field">
+      <%= freelancer.label :name, "Freelancer" %>
+      <%= freelancer.text_field :name %>
+    </div>
+    <div class="field">
+      <%= freelancer.label :licence_num, "教练号" %>
+      <%= freelancer.text_field :licence_num %>
+    </div>
+    <div class="field">
+      <%= freelancer.label :licence_type, "教练机构" %>
+      <%# binding.pry %>
+      <%= freelancer.collection_select(:licence_type, Ticket.licence_types, :last, :first)  %>
+    </div>
+  <% end %>
+
 
   <div class="actions">
     <%= form.submit %>

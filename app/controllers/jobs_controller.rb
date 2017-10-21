@@ -8,6 +8,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/1
   def show
+    @ticket = @job.tickets.new
   end
 
   # GET /jobs/new
@@ -21,8 +22,10 @@ class JobsController < ApplicationController
 
   # POST /jobs
   def create
-    @job = Job.new(job_params)
 
+    @job = Job.new(job_params)
+    @job.build_recruiter(recruiter_params)
+    # binding.pry
     if @job.save
       redirect_to @job, notice: 'Job was successfully created.'
     else
@@ -53,6 +56,11 @@ class JobsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def job_params
-      params.require(:job).permit(:recuriter_id, :time, :quantity, :worker_num, :price, :content, :diving_num, :duration, :note)
+      r = params.require(:job).permit(:time, :quantity, :worker_num, :price, :content_type, :diving_num, :duration, :note)
+      r[:content_type] = r[:content_type].to_i
+      r
+    end
+    def recruiter_params
+      params.require(:recruiter).permit(:name, :contact)
     end
 end

@@ -13,12 +13,12 @@
 ActiveRecord::Schema.define(version: 20171020162739) do
 
   create_table "jobs", force: :cascade do |t|
-    t.integer "recuriter_id"
+    t.integer "recruiter_id"
     t.datetime "time"
     t.integer "quantity"
     t.float "worker_num"
     t.decimal "price", precision: 7, scale: 2
-    t.string "content"
+    t.integer "content_type", null: false
     t.integer "diving_num"
     t.integer "duration"
     t.text "note"

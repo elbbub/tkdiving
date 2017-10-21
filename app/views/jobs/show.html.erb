@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Recuriter:</strong>
-  <%= @job.recuriter_id %>
+  <strong>Recruiter:</strong>
+  <%= @job.recruiter.name %>
+</p>
+
+<p>
+  <strong>Recruiter contact:</strong>
+  <%= @job.recruiter.contact %>
 </p>
 
 <p>
@@ -27,7 +32,7 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @job.content %>
+  <%= @job.content_type %>
 </p>
 
 <p>
@@ -45,5 +50,7 @@
   <%= @job.note %>
 </p>
 
-<%= link_to 'Edit', edit_job_path(@job) %> |
+
+
+<%= link_to 'Add ticket', new_job_ticket_path(@job) %> | <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to 'Back', jobs_path %>

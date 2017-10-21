@@ -3,6 +3,7 @@ class TicketsController < ApplicationController
 
   # GET /tickets
   def index
+    @job = Job.find(params[:job_id])
     @tickets = Ticket.all
   end
 
@@ -12,6 +13,8 @@ class TicketsController < ApplicationController
 
   # GET /tickets/new
   def new
+    @job = Job.find(params[:job_id])
+
     @ticket = Ticket.new
   end
 
@@ -21,10 +24,13 @@ class TicketsController < ApplicationController
 
   # POST /tickets
   def create
-    @ticket = Ticket.new(ticket_params)
+    @job = Job.find(params[:job_id])
 
+    @ticket = @job.tickets.new(ticket_params)
+    @ticket.build_freelancer(freelancer_params)
+    # binding.pry
     if @ticket.save
-      redirect_to @ticket, notice: 'Ticket was successfully created.'
+      redirect_to jobs_path, notice: 'Ticket was successfully created.'
     else
       render :new
     end
@@ -53,6 +59,9 @@ class TicketsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def ticket_params
-      params.require(:ticket).permit(:freelancer_id, :job_id, :take_quantity)
+      params.require(:ticket).permit(:take_quantity)
+    end
+    def freelancer_params
+      params.require(:freelancer).permit(:name, :licence_num, :licence_type)
     end
 end

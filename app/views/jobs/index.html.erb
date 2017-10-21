@@ -5,31 +5,42 @@
 <table>
   <thead>
     <tr>
-      <th>Recuriter</th>
-      <th>Time</th>
-      <th>Quantity</th>
-      <th>Worker num</th>
-      <th>Price</th>
-      <th>Content</th>
-      <th>Diving num</th>
-      <th>Duration</th>
-      <th>Note</th>
+      <th>序号</th>
+      <th>日期</th>
+      <th>工作内容</th>
+      <th>数量</th>
+      <th>价格</th>
+      <th>潜数</th>
+      <th>天数</th>
+      <th>招聘人</th>
+      <th>教练</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @jobs.each do |job| %>
+    <% @jobs.each_with_index do |job, i| %>
       <tr>
-        <td><%= job.recuriter_id %></td>
+        <td><%= i+1 %></td>
         <td><%= job.time %></td>
+        <td><%= job.content_type %></td>
         <td><%= job.quantity %></td>
-        <td><%= job.worker_num %></td>
         <td><%= job.price %></td>
-        <td><%= job.content %></td>
         <td><%= job.diving_num %></td>
         <td><%= job.duration %></td>
-        <td><%= job.note %></td>
+        <td><%= job.recruiter.name %></td>
+        <td>
+          <% if job.tickets.empty? %>
+            <%= "-" %>
+          <% else %>
+            <% job.tickets.each_with_index do |t, i| %>
+              <%= i+1 %>
+              <%= t.freelancer.name %>
+              <%= t.take_quantity %>
+            <% end %>
+          <% end %>
+          <%#= job.freelancer.name %>
+        </td>
         <td><%= link_to 'Show', job %></td>
         <td><%= link_to 'Edit', edit_job_path(job) %></td>
         <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
