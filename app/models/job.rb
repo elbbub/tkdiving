@@ -6,5 +6,5 @@ class Job < ApplicationRecord
 
   has_many :tickets
 
-  enum content_type: [:ow, :aow, :ow_aow] 
+  enum content_type: [:dsd, :fundive, :efr, :rescure, :dm, :aow_fundive, :ow, :aow, :ow_aow] 
 end

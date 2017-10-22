@@ -1,56 +1,105 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Recruiter:</strong>
-  <%= @job.recruiter.name %>
-</p>
+<div class="container">
 
-<p>
-  <strong>Recruiter contact:</strong>
-  <%= @job.recruiter.contact %>
-</p>
+  <div class="columns" style="margin-top: 3rem;">
+    <div class="column is-8 is-offset-2">
+      <div class="card">
+        <div class="card-content">
+          <div class="columns">
+            <div class="column is-2">
+              <strong>Recruiter: </strong>
+            </div>
+            <div class="column is-4">
+              <%= @job.recruiter.name %>
+            </div>
+          </div>
 
-<p>
-  <strong>Time:</strong>
-  <%= @job.time %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @job.quantity %>
-</p>
-
-<p>
-  <strong>Worker num:</strong>
-  <%= @job.worker_num %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @job.price %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @job.content_type %>
-</p>
-
-<p>
-  <strong>Diving num:</strong>
-  <%= @job.diving_num %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= @job.duration %>
-</p>
-
-<p>
-  <strong>Note:</strong>
-  <%= @job.note %>
-</p>
+          <div class="columns">
+            <div class="column is-2">
+              <strong>Time: </strong>
+            </div>
+            <div class="column is-4">
+              <%= @job.time %>
+            </div>
+          </div>
 
 
+          <div class="columns">
+            <div class="column is-2">
+              <strong>Quantity:</strong>
+            </div>
+            <div class="column is-4">
+              <%= @job.quantity %>
+            </div>
+          </div>
 
-<%= link_to 'Add ticket', new_job_ticket_path(@job) %> | <%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+
+          <div class="columns">
+            <div class="column is-2">
+              <strong>招募数量:</strong>
+            </div>
+            <div class="column is-4">
+              <%= @job.worker_num %>
+            </div>
+          </div>
+
+
+          <div class="columns">
+            <div class="column is-2">
+              <strong>Price:</strong>
+            </div>
+            <div class="column is-4">
+              <%= @job.price %>
+            </div>
+          </div>
+
+
+          <div class="columns">
+            <div class="column is-2">
+              <strong>Content:</strong>
+            </div>
+            <div class="column is-4">
+              <%= @job.content_type %>
+            </div>
+          </div>
+
+
+          <div class="columns">
+            <div class="column is-2">
+              <strong>Diving num:</strong>
+            </div>
+            <div class="column is-4">
+              <%= @job.diving_num %>
+            </div>
+          </div>
+
+          <div class="columns">
+            <div class="column is-2">
+              <strong>Duration:</strong>
+            </div>
+            <div class="column is-4">
+              <%= @job.duration %>
+            </div>
+          </div>
+
+          <div class="columns">
+            <div class="column is-2">
+              <strong>Note:</strong>
+            </div>
+            <div class="column is-4">
+              <%= @job.note %>
+            </div>
+          </div>
+
+        </div>
+
+        <footer class="card-footer">
+          <%= link_to 'Add ticket', new_job_ticket_path(@job), class: "card-footer-item" %>
+          <%= link_to 'Edit', edit_job_path(@job), class: "card-footer-item" %>
+          <%= link_to 'Back', jobs_path, class: "card-footer-item" %>
+        </footer>
+      </div>
+    </div>
+
+  </div>

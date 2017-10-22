@@ -1,9 +1,7 @@
-
 <%= form_with(model: @ticket, url: job_tickets_path(@job)) do |form| %>
   <% if @ticket.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this @ticket from being saved:</h2>
-
       <ul>
       <% @ticket.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -13,30 +11,55 @@
   <% end %>
 
 
-  <div class="field">
-    <%= form.label :take_quantity, "认领人数" %>
-    <%= form.number_field :take_quantity, id: :ticket_take_quantity %>
-  </div>
 
+
+  <div class="columns">
+    <div class="column is-2">
+      <%= form.label :take_quantity, "认领人数" %>
+    </div>
+    <div class="column is-8">
+      <%= form.number_field :take_quantity, id: :ticket_take_quantity, class: "input" %>
+    </div>
+  </div>
 
   <%= fields_for :freelancer, @ticket.freelancer do |freelancer| %>
-    <div class="field">
-      <%= freelancer.label :name, "Freelancer" %>
-      <%= freelancer.text_field :name %>
+
+
+    <div class="columns">
+      <div class="column is-2">
+        <%= freelancer.label :name, "Freelancer" %>
+      </div>
+      <div class="column is-8">
+        <%= freelancer.text_field :name, class: "input" %>
+      </div>
     </div>
-    <div class="field">
-      <%= freelancer.label :licence_num, "教练号" %>
-      <%= freelancer.text_field :licence_num %>
+
+    <div class="columns">
+      <div class="column is-2">
+        <%= freelancer.label :licence_num, "教练号" %>
+      </div>
+      <div class="column is-8">
+        <%= freelancer.text_field :licence_num, class: "input" %>
+      </div>
     </div>
-    <div class="field">
-      <%= freelancer.label :licence_type, "教练机构" %>
-      <%# binding.pry %>
-      <%= freelancer.collection_select(:licence_type, Ticket.licence_types, :last, :first)  %>
+
+
+    <div class="columns">
+      <div class="column is-2">
+        <%= freelancer.label :licence_type, "教练机构" %>
+      </div>
+      <div class="column control">
+        <div class="select">
+          <%= freelancer.collection_select(:licence_type, Ticket.licence_types, :last, :first)  %>
+        </div>
+      </div>
+
     </div>
+
   <% end %>
 
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="control">
+    <%= form.submit class: "button is-link" %>
   </div>
+
 <% end %>

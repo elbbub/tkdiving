@@ -1,54 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Jobs</h1>
+<div class="container has-text-centered">
+  <div class="column is-10 is-offset-1">
+    <table class="table is-hoverable">
+      <thead>
+        <tr>
+          <th></th>
+          <th>日期</th>
+          <th>工作内容</th>
+          <th>数量</th>
+          <th>价格</th>
+          <th>潜数</th>
+          <th>天数</th>
+          <th>教练空缺数</th>
+          <th>教练参与数</th>
+          <th>状态</th>
+          <th colspan="4"></th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>序号</th>
-      <th>日期</th>
-      <th>工作内容</th>
-      <th>数量</th>
-      <th>价格</th>
-      <th>潜数</th>
-      <th>天数</th>
-      <th>招聘人</th>
-      <th>教练</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <tbody>
+        <% @jobs.each_with_index do |job, i| %>
+        <tr>
+          <td><%= i+1 %></td>
+          <td><%= job.time %></td>
+          <td><%= job.content_type %></td>
+          <td><%= job.quantity %></td>
+          <td><%= job.price %></td>
+          <td><%= job.diving_num %></td>
+          <td><%= job.duration %></td>
+          <td><%= job.worker_num %></td>
+          <td><%= job.tickets.count %></td>
+          <td><%= "招聘中" %></td>
+          <td><%= link_to '去认领', new_job_ticket_path(job) %></td>
+          <td><%#= link_to 'Show', job %></td>
+          <td><%#= link_to 'Edit', edit_job_path(job) %></td>
+          <td><%#= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-  <tbody>
-    <% @jobs.each_with_index do |job, i| %>
-      <tr>
-        <td><%= i+1 %></td>
-        <td><%= job.time %></td>
-        <td><%= job.content_type %></td>
-        <td><%= job.quantity %></td>
-        <td><%= job.price %></td>
-        <td><%= job.diving_num %></td>
-        <td><%= job.duration %></td>
-        <td><%= job.recruiter.name %></td>
-        <td>
-          <% if job.tickets.empty? %>
-            <%= "-" %>
-          <% else %>
-            <% job.tickets.each_with_index do |t, i| %>
-              <%= i+1 %>
-              <%= t.freelancer.name %>
-              <%= t.take_quantity %>
-            <% end %>
-          <% end %>
-          <%#= job.freelancer.name %>
-        </td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
-
-<%= link_to 'New Job', new_job_path %>
+</div>

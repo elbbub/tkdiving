@@ -67,7 +67,8 @@ end
 
 source "https://rails-assets.org" do
   # gem 'rails-assets-tether'
-  gem 'rails-assets-bootstrap', '4.0.0.beta'
+  # gem 'rails-assets-bootstrap', '4.0.0.beta'
+  gem 'rails-assets-bulma'
 end
 
 

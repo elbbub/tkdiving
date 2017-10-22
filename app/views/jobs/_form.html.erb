@@ -12,57 +12,97 @@
 
 
   <%= fields_for :recruiter, @job.recruiter do |recruiter| %>
-    <div class="field">
-      <%= recruiter.label :name, "Recruiter" %>
-      <%= recruiter.text_field :name %>
+
+    <div class="columns">
+      <div class="column is-2">
+        <%= recruiter.label :name, "Recruiter" %>
+      </div>
+      <div class="column is-8">
+        <%= recruiter.text_field :name, class: "input" %>
+      </div>
     </div>
-    <div class="field">
-      <%= recruiter.label :contact, "Contact" %>
-      <%= recruiter.text_field :contact %>
-    </div>
+
   <% end %>
 
-  <div class="field">
-    <%= form.label :time %>
-    <%= form.datetime_select :time, id: :job_time %>
+
+  <div class="columns">
+    <div class="column is-2">
+      <%= form.label :time %>
+    </div>
+    <div class="column is-8">
+      <%= form.datetime_select :time, id: :job_time %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity, id: :job_quantity %>
+
+  <div class="columns">
+    <div class="column is-2">
+      <%= form.label :quantity %>
+    </div>
+    <div class="column is-8">
+      <%= form.number_field :quantity, id: :job_quantity, class: "input" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :worker_num %>
-    <%= form.text_field :worker_num, id: :job_worker_num %>
+  <div class="columns">
+    <div class="column is-2">
+      <%= form.label :worker_num %>
+    </div>
+    <div class="column is-8">
+      <%= form.text_field :worker_num, id: :job_worker_num, class: "input" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :job_price %>
+  <div class="columns">
+    <div class="column is-2">
+      <%= form.label :price %>
+    </div>
+    <div class="column is-8">
+      <%= form.text_field :price, id: :job_price, class: "input" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :content_type, "工作内容" %>
-    <%= form.collection_select(:content_type, Job.content_types, :last, :first) %>
+  <div class="columns">
+    <div class="column is-2">
+      <%= form.label :content_type, "工作内容" %>
+    </div>
+    <div class="column is-8">
+      <div class="select">
+        <%= form.collection_select(:content_type, Job.content_types, :last, :first) %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :diving_num %>
-    <%= form.number_field :diving_num, id: :job_diving_num %>
+
+  <div class="columns">
+    <div class="column is-2">
+      <%= form.label :diving_num %>
+    </div>
+    <div class="column is-8">
+      <%= form.number_field :diving_num, id: :job_diving_num, class: "input" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :duration %>
-    <%= form.number_field :duration, id: :job_duration %>
+
+  <div class="columns">
+    <div class="column is-2">
+      <%= form.label :duration %>
+    </div>
+    <div class="column is-8">
+      <%= form.number_field :duration, id: :job_duration, class: "input" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :note %>
-    <%= form.text_area :note, id: :job_note %>
+  <div class="columns">
+    <div class="column is-2">
+      <%= form.label :note %>
+    </div>
+    <div class="column is-8">
+      <%= form.text_area :note, id: :job_note, class: "input" %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "button is-link" %>
   </div>
 <% end %>

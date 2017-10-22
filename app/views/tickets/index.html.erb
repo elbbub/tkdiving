@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Freelancer</th>
-      <th>Job</th>
       <th>Take quantity</th>
       <th colspan="3"></th>
     </tr>
@@ -15,8 +14,7 @@
   <tbody>
     <% @tickets.each do |ticket| %>
       <tr>
-        <td><%= ticket.freelancer_id %></td>
-        <td><%= ticket.job_id %></td>
+        <td><%= ticket.freelancer.name %></td>
         <td><%= ticket.take_quantity %></td>
         <td><%= link_to 'Show', job_ticket_path(@job,ticket) %></td>
         <td><%= link_to 'Edit', edit_job_ticket_path(@job,ticket) %></td>

@@ -1,0 +1,15 @@
+<form action="/sign_in" method="POST">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+  <div class="field">
+    <p class="control has-icons-left">
+      <input class="input is-large" type="password" placeholder="Pass Phrase" name="pass_phase">
+      <span class="icon is-small is-left">
+        <i class="fa fa-lock"></i>
+      </span>
+    </p>
+  </div>
+  <!-- <a class="button is-block is-info is-large">Login</a> -->
+    <input name="commit" class="button is-block is-info is-large" type="submit" value="Sing In" />
+
+</form>

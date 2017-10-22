@@ -1,0 +1,24 @@
+<nav class="navbar is-transparent">
+  <div class="navbar-brand has-text-centered">
+    <div class="navbar-item">
+      LOGO
+    </div>
+  </div>
+
+  <div id="navMenuTransparentExample" class="navbar-menu">
+    <div class="navbar-start">
+      <div class="navbar-item">
+        <%= link_to "Jobs", jobs_path %>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <%= link_to 'Create new Job', new_job_path %>
+      </div>
+      <div class="navbar-item">
+        <%= link_to "sign out", sign_out_path, method: :delete %>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -7,9 +7,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+    <%= render "partials/header" unless params[:controller].eql?("sessions") %>
     <%= yield %>
   </body>
 </html>

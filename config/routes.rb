@@ -3,8 +3,11 @@ Rails.application.routes.draw do
     resources :tickets
   end
 
-  get '/sign_in', to: "application#app_sign_in_new"
-  post '/sign_in', to: "application#app_sign_in"
+  get '/sign_in', to: "sessions#new"
+  post '/sign_in', to: "sessions#create"
+  delete '/sign_out', to: "sessions#destroy"
 
-  root "application#app_index"
+  root "jobs#index"
+
+
 end
