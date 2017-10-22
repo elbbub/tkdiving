@@ -27,7 +27,7 @@ class JobsController < ApplicationController
     @job.build_recruiter(recruiter_params)
     # binding.pry
     if @job.save
-      redirect_to @job, notice: 'Job was successfully created.'
+      redirect_to jobs_path, notice: 'Job was successfully created.'
     else
       render :new
     end

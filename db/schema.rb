@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171020162739) do
+ActiveRecord::Schema.define(version: 20171022051126) do
 
   create_table "jobs", force: :cascade do |t|
     t.integer "recruiter_id"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20171020162739) do
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
   end
 
   create_table "tickets", force: :cascade do |t|

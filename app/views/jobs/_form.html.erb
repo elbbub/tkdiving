@@ -58,7 +58,29 @@
       <%= form.label :price %>
     </div>
     <div class="column is-8">
-      <%= form.text_field :price, id: :job_price, class: "input" %>
+      <div class="field has-addons has-addons-right">
+        <p class="control">
+          <span class="select">
+            <select>
+              <option>THB</option>
+            </select>
+          </span>
+        </p>
+        <p class="control is-expanded">
+          <%= form.text_field :price, id: :job_price, class: "input" %>
+        </p>
+        &nbsp; / &nbsp;
+        <p class="control">
+          <span class="select">
+            <select>
+              <option>潜</option>
+              <option>天</option>
+            </select>
+          </span>
+        </p>
+
+      </div>
+
     </div>
   </div>
 
@@ -79,7 +101,20 @@
       <%= form.label :diving_num %>
     </div>
     <div class="column is-8">
-      <%= form.number_field :diving_num, id: :job_diving_num, class: "input" %>
+      <div class="field has-addons has-addons-right">
+        <p class="control is-expanded">
+          <%= form.number_field :diving_num, id: :job_diving_num, class: "input" %>
+        </p>
+        &nbsp; / &nbsp;
+        <p class="control ">
+          <span class="select">
+            <select>
+              <option>人</option>
+            </select>
+          </span>
+        </p>
+      </div>
+
     </div>
   </div>
 

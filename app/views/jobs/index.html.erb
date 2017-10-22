@@ -15,7 +15,7 @@
           <th>教练空缺数</th>
           <th>教练参与数</th>
           <th>状态</th>
-          <th colspan="4"></th>
+          <th colspan="2"></th>
         </tr>
       </thead>
 
@@ -31,11 +31,10 @@
           <td><%= job.duration %></td>
           <td><%= job.worker_num %></td>
           <td><%= job.tickets.count %></td>
-          <td><%= "招聘中" %></td>
+          <td><%= job.status %></td>
+          <td><%= link_to '查看', job_path(job) %></td>
           <td><%= link_to '去认领', new_job_ticket_path(job) %></td>
-          <td><%#= link_to 'Show', job %></td>
-          <td><%#= link_to 'Edit', edit_job_path(job) %></td>
-          <td><%#= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
         </tr>
         <% end %>
       </tbody>
